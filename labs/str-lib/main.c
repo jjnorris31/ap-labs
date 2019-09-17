@@ -10,7 +10,7 @@ int main(int argc, char **argv[]) {
         return 0;
     } else {
         printf("U need to send the correct number of arguments...\n");
-        printf("How to run: ./main <originalSt> <addSt> <addSt>\n");
+        printf("How to run: ./main <original> <add> <find>\n");
         return -1;
     }
 }
