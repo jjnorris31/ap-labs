@@ -2,8 +2,8 @@ SHELL    = /bin/bash
 CC       = gcc
 CFLAGS   = -Wall
 LDFLAGS  =
-OBJFILES = generic_merge_sort.o
-TARGET   = generic_merge_sort
+OBJFILES = cat2.o
+TARGET   = mycat
 
 all: $(TARGET)
 
