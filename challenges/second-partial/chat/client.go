@@ -7,26 +7,40 @@
 package main
 
 import (
+	"flag"
 	"io"
 	"log"
 	"net"
 	"os"
+	"strings"
+)
+
+var (
+	prefixName io.Reader
 )
 
 //!+
 func main() {
-	conn, err := net.Dial("tcp", "localhost:8000")
+	clientName := flag.String("user", "default-user", "")
+	server := flag.String("server", "localhost:8000", "")
+	flag.Parse()
+	if ok := strings.TrimSpace(*clientName) == ""; ok {
+		log.Panic("client: clientName cannot be an \" \"")
+	}
+
+	conn, err := net.Dial("tcp", *server)
 	if err != nil {
 		log.Fatal(err)
 	}
+	_, _ = io.WriteString(conn, "<meta>"+*clientName+"\n")
 	done := make(chan struct{})
 	go func() {
-		io.Copy(os.Stdout, conn) // NOTE: ignoring errors
-		log.Println("done")
+		_, _ = io.Copy(os.Stdout, conn) // NOTE: ignoring errors
+		log.Println("Disconnected")
 		done <- struct{}{} // signal the main goroutine
 	}()
 	mustCopy(conn, os.Stdin)
-	conn.Close()
+	_ = conn.Close()
 	<-done // wait for background goroutine to finish
 }
 
