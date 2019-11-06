@@ -1,5 +1,8 @@
 #include <stdio.h>
-#include "strlib.c"
+
+int mystrlen(char*);
+char* mystradd(char*, char*);
+int mystrfind(char*, char*);
 
 int main(int argc, char **argv[]) {
     if (argc == 4) {
