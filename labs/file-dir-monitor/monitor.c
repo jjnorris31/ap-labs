@@ -1,7 +1,3 @@
-// References:
-// example of inotify https://www.thegeekstuff.com/2010/04/inotify-c-program-example/
-// documentation of nftw https://linux.die.net/man/3/nftw
-
 #define _XOPEN_SOURCE 500
 
 #include <signal.h>
