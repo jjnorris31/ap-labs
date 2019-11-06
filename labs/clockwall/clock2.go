@@ -4,9 +4,13 @@ package main
 import (
 	"io"
 	"log"
+	"fmt"
 	"net"
 	"time"
+	"flag"
 )
+
+var p = flag.Int("p", 9090, "port number")
 
 func handleConn(c net.Conn) {
 	defer c.Close()
@@ -20,7 +24,8 @@ func handleConn(c net.Conn) {
 }
 
 func main() {
-	listener, err := net.Listen("tcp", "localhost:9090")
+    flag.Parse()
+	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", *p))
 	if err != nil {
 		log.Fatal(err)
 	}
