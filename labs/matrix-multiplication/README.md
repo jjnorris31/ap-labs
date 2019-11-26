@@ -64,8 +64,8 @@ Data files
 
 How to run
 ----------
-`gcc -o "multiplier" multiplier.c logger.c -pthread
-`./multiplier -n some_number
+- `gcc -o "multiplier" multiplier.c logger.c -pthread`
+- `./multiplier -n some_number`
 
 
 Final Requirements and Considerations
