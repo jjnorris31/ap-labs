@@ -62,6 +62,11 @@ Data files
 `matA.dat` and `matB.dat` are located at:
 - [Classify Share](https://console.cloud.google.com/storage/browser/classify-share)
 
+How to run
+----------
+`gcc -o "multiplier" multiplier.c logger.c -pthread
+`./multiplier -n some_number
+
 
 Final Requirements and Considerations
 ---------------------------------------
