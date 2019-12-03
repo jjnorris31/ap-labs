@@ -1,13 +1,6 @@
-/*
-**  PROGRAM: A simple serial producer/consumer program
-**
-**  One function generates (i.e. produces) an array of random values.
-**  A second functions consumes that array and sums it.
-**
-**  HISTORY: Written by Tim Mattson, April 2007.
-*/
 #include "omp.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 #define N        10000
 
