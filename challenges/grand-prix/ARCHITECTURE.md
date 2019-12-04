@@ -9,16 +9,14 @@
 City Traffic Simulator has a ?? based architecture. It consists of ##.go files that will be described bellow.
 
 [GrandPrix.go](GrandPrix.go)
-- Main file, it constains the calls for the rest of the program.
+- Main file, it contains the calls for the rest of the program.
 
-[Car.go](Car.go)
-- An struct to represent a car in the program.
 ***************************
-### Graph
+### Diagram
 
-The following graph was used for the city structure.
+The following graph was used for the race track structure.
 
-![City Graph](graph.png)
+![City Graph](diagram.png)
 
 
 ***************************

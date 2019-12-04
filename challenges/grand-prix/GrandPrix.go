@@ -165,7 +165,7 @@ func run() {
 
 				// update the info of the race in the screen
 				if !cars[i].finished {
-					_, _ = fmt.Fprintf(basicTxt, "Car: %d | %d km/h | current Lap: %d | pos: %d\n", cars[i].id + 1, tempCurrentSpeed * 10 ,cars[i].currentLap, cars[i].position)
+					_, _ = fmt.Fprintf(basicTxt, "Car: %d | current Lap: %d | pos: %d | %d km/h\n", cars[i].id + 1, cars[i].currentLap,cars[i].position, tempCurrentSpeed * 10 )
 				} else {
 					_, _ = fmt.Fprintf(basicTxt, "Car: %d | Top pos: %d | Total time: %.4v\n", cars[i].id + 1, cars[i].finalPosition, cars[i].timeElapsed)
 				}
@@ -232,8 +232,8 @@ func run() {
 			}
 		}
 
-		// redraws the window every time (but doesn't erase it's content).
-
+		// draw if the race info if
+		// 3 cars has finished
 		if finalTop < 4 {
 			basicTxt.Draw(win, pixel.IM)
 		}
@@ -253,7 +253,7 @@ var finalTop int
 var top []Car
 
 func main() {
-	tempTotal := flag.Int("number", 10, "numbers of cars")
+	tempTotal := flag.Int("cars", 10, "numbers of cars")
 	tempLaps := flag.Int("laps", 1, "numbers of laps")
 	flag.Parse()
 	totalCars = *tempTotal
